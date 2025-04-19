@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - E-Voting Platform</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard</h1>
+    <p>Welcome, Admin <%= user.username %>! | <a href="/auth/logout">Logout</a></p>
+  </header>
+  <main>
+    <a href="/admin/create-topic" class="button">Create New Topic</a>
+    <h2>Existing Topics</h2>
+    <ul class="topic-list">
+      <% topics.forEach(topic => { %>
+        <li>
+          <%= topic.title %> - <a href="/admin/results/<%= topic.id %>">View Results</a>
+        </li>
+      <% }); %>
+    </ul>
+  </main>
+  <footer>
+    <p>© 2025 E-Voting Platform. All rights reserved.</p>
+  </footer>
+</body>
+</html>

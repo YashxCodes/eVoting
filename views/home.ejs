@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-Voting Home</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to the E-Voting Platform</h1>
+    <% if (user) { %>
+      <p>Hello, <%= user.username %>! <a href="/auth/logout">Logout</a></p>
+    <% } else { %>
+      <p><a href="/auth/login">Login</a> | <a href="/auth/signup">Signup</a></p>
+    <% } %>
+  </header>
+  <main>
+    <p>This is a secure and efficient e-voting platform that allows voters to cast their votes and administrators to manage the election process.</p>
+  </main>
+  <footer>
+    <p>© 2025 E-Voting Platform. All rights reserved.</p>
+  </footer>
+</body>
+</html>

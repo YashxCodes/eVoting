@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Voter Dashboard - E-Voting Platform</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Voter Dashboard</h1>
+    <p>Welcome, <%= user.username %>! | <a href="/auth/logout">Logout</a></p>
+  </header>
+  <main>
+    <h2>Voting Topics</h2>
+    <% topics.forEach(topic => { %>
+      <div class="topic">
+        <h3><%= topic.title %></h3>
+        <form action="/voter/vote/<%= topic.id %>" method="post">
+          <% topic.options.forEach(opt => { %>
+            <div>
+              <input type="radio" name="option" value="<%= opt.option %>" required>
+              <label><%= opt.option %></label>
+            </div>
+          <% }); %>
+          <button type="submit">Vote</button>
+        </form>
+      </div>
+    <% }); %>
+  </main>
+  <footer>
+    <p>© 2025 E-Voting Platform. All rights reserved.</p>
+  </footer>
+</body>
+</html>
